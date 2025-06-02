@@ -3,7 +3,6 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import React, { useContext, useEffect } from 'react'
 import { ShopContext } from '../_context/ShopContext';
 import { toast } from 'react-toastify';
-import axios from 'axios';
 import axiosClient from '../_utilts/axiosClient';
 
 const page = () => {
