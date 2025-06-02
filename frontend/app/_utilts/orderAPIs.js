@@ -44,4 +44,4 @@ const getUserOrders = async (token) => {
   }
 }
 
-export { payWithCOD, getUserOrders, payWithStripe, verifyStripe };
+export { payWithCOD, getUserOrders, payWithStripe };
