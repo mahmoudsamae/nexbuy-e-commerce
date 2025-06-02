@@ -34,7 +34,7 @@ const page = () => {
     verifyPayment();
   }, [token])
   return (
-    <div>page</div>
+    <div>Loading ...</div>
   )
 }
 

@@ -9,7 +9,7 @@ import { backend_url } from "./layout";
 import { toast } from "react-toastify";
 
 export default function Add() {
-  const { token, setToken } = useContext(UserContext);
+  const { token } = useContext(UserContext);
   const [sizes, setSizes] = useState([]);
   const [image1, setImage1] = useState(false);
   const [image2, setImage2] = useState(false);
