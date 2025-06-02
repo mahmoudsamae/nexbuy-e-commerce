@@ -2,8 +2,9 @@
 import { useRouter, useSearchParams } from 'next/navigation';
 import React, { useContext, useEffect } from 'react'
 import { ShopContext } from '../_context/ShopContext';
-import { verifyStripe } from '../_utilts/orderAPIs';
 import { toast } from 'react-toastify';
+import axios from 'axios';
+import axiosClient from '../_utilts/axiosClient';
 
 const page = () => {
   const { token, setCartItems } = useContext(ShopContext);
@@ -17,7 +18,11 @@ const page = () => {
       if(!token){
         return null
       }
-      const response = await verifyStripe(success, orderId, token);
+      const response = await axiosClient.post(
+        "/api/order/verifystripe",
+        { success, orderId },
+        { headers: { token } }
+      );
       if(response.data.success){
         setCartItems({});
         navigate.push("/orders")

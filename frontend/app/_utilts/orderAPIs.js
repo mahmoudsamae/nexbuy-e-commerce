@@ -24,15 +24,15 @@ const payWithStripe = async (orderData, token) => {
   }
 }
 
-// verify after stripe
-const verifyStripe = async (success, orderId, token) => {
-  try {
-    const response = await axiosClient.post("/api/order/verifystripe", {success, orderId}, {headers: {token}});
-    return response;
-  } catch (error) {
-    console.log(error);
-  }
-} 
+// // verify after stripe
+// const verifyStripe = async (success, orderId, token) => {
+//   try {
+//     const response = await axiosClient.post("/api/order/verifystripe", {success, orderId}, {headers: {token}});
+//     return response;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// } 
 
 
 const getUserOrders = async (token) => {

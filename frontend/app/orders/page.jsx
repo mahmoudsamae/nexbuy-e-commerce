@@ -6,7 +6,7 @@ import Image from "next/image";
 import { getUserOrders } from "../_utilts/orderAPIs";
 
 const page = () => {
-  const { products, token } = useContext(ShopContext);
+  const { token } = useContext(ShopContext);
   const [orderData, setOrderData] = useState([]);
 
   const getUserOrders_ = async () => {
