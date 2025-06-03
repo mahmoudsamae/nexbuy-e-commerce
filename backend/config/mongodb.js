@@ -1,32 +1,11 @@
 import mongoose from "mongoose";
 
-const MONGODB_URL = process.env.MONGODB_URL;
-
-if (!MONGODB_URL) {
-  throw new Error("Please define the MONGODB_URL environment variable");
-} 
-
-let cached = global.mongoose;
-
-if (!cached) {
-  cached = global.mongoose = { conn: null, promise: null };
-}
-
 const connectDB = async () => {
-  if (cached.conn) {
-    return cached.conn;
-  }
   try {
-    if (!cached.promise) {
-        cached.promise = await mongoose.connect(MONGODB_URL, {
-        bufferCommands: false,
-      });
-    }
-    cached.conn = await cached.promise;
-    console.log("✅ Database connected successfully");
+    await mongoose.connect(process.env.MONGODB_URL);
+    console.log("database connected seccesfuly")
   } catch (error) {
-    console.error("❌ Database connection error:", error);
-    throw error;
+    console.log("error :" + error);
   }
 }
 
