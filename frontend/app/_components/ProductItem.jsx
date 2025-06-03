@@ -6,7 +6,7 @@ import { IoIosStar } from "react-icons/io";
 const ProductItem = ({product}) => {
   return (
     <Link
-      href={product._id}
+      href={`/product/${product._id}`}
       className="rounded-2xl p-4 shadow-2xl min-h-[340px]"
     >
       <div className="relative h-[300px] sm:h-[240px] md:h-[220px]">
