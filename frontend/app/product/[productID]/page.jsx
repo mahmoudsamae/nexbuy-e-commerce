@@ -1,6 +1,5 @@
 "use client";
 import React, { use, useContext, useEffect, useState } from "react";
-import { ShopContext } from "../_context/ShopContext";
 import Image from "next/image";
 import { FaStar } from "react-icons/fa6";
 import { FaStarHalfStroke } from "react-icons/fa6";
@@ -9,6 +8,7 @@ import { AiOutlineDeliveredProcedure } from "react-icons/ai";
 import ProductDescription from "./components/ProductDescription";
 import ProductsFeatures from "./components/ProductsFeatures";
 import ProductsRelative from "./components/ProductsRelative";
+import { ShopContext } from "@/app/_context/ShopContext";
 
 const page = ({ params }) => {
   const { productID } = use(params);
