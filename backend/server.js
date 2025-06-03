@@ -8,7 +8,7 @@ import productRouter from "./routers/productRouter.js";
 import cartRouter from "./routers/cartRouter.js";
 import orderRouter from "./routers/orderRouter.js";
 
-// App Config 
+// App Config
 const app = express();
 const PORT = process.env.PORT || 4000;
 
@@ -24,12 +24,11 @@ app.use("/api/product", productRouter);
 app.use("/api/cart", cartRouter);
 app.use("/api/order", orderRouter);
 
-// Api endPoints 
+// Api endPoints
 app.get("/", (req, res) => {
   res.send("hello world");
 });
 
-
 app.listen(PORT, () => {
-  console.log("server running on port :" + PORT)
-})
+  console.log("server running on port :" + PORT);
+});
