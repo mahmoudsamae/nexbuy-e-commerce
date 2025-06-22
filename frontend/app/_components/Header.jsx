@@ -13,7 +13,7 @@ import Navbar from "./Navbar";
 import { ShopContext } from "../_context/ShopContext";
 import { useRouter } from "next/navigation";
 
-const Header = () => {
+const Header = ({showSearch}) => {
   const { token, setToken, getCartCount } = useContext(ShopContext);
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useRouter()
@@ -58,7 +58,6 @@ const Header = () => {
               </button>
             </div>
             <div className="flex justify-center items-center gap-4 ">
-              <FaSearch />
               <Link href={"/cart"} className="relative cursor-pointer">
                 <AiOutlineShoppingCart className="w-6 h-6 text-gray-700" />
                 <span className="absolute -top-2 -right-2 bg-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
@@ -69,7 +68,7 @@ const Header = () => {
               <div className="relative group">
                 <div>
                   {token ? (
-                    <FaRegCircleUser className="w-6 h-6 " />
+                    <img src="/assets/user.png" alt="userImg" className="w-7 h-7 cursor-pointer" />
                   ) : (
                     <Link
                       href={"/auth/login"}

@@ -22,10 +22,10 @@ const Hero = () => {
           </p>
         </div>
         <div className="flex flex-col gap-3 ">
-          <h3 className="text-primary text-[25px] flex items-center gap-1.5">
+          <h3 className="text-primary text-[25px] font-bold flex items-center gap-1.5">
             MODERN COLLECTION <FaFirefox />
           </h3>
-          <h1 className="text-[32px] max-w-[500px]">
+          <h1 className="text-[25px] sm:text-[32px] max-w-[500px]">
             Every Click Brings You Closer To Perfection Shop Now!
           </h1>
           <button className="flex items-center gap-2 cursor-pointer bg-white w-fit px-4 py-1.5 rounded-4xl">

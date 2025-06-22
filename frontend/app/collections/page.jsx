@@ -24,7 +24,6 @@ const page = () => {
 
   const applyFilter = () => {
     let filtered = [...products];
-    console.log(filtered)
     if (search && isShowSearch) {
       filtered = filtered.filter((product) =>
         product?.name?.toLowerCase().includes(search?.toLowerCase())

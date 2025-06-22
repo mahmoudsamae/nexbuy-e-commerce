@@ -61,7 +61,7 @@ const NewArrivals = () => {
         className="h-[530px] sm:h-[420px]"
       >
         {newArrivals?.map((product) => (
-          <SwiperSlide>
+          <SwiperSlide className="p-3 sm:p-0">
             <NewArrivalItem key={product?._id} product={product} />
           </SwiperSlide>
         ))}

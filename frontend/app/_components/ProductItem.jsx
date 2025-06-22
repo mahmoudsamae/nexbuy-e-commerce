@@ -20,17 +20,17 @@ const ProductItem = ({product}) => {
         />
       </div>
       <div className="pt-3">
-        <h6 className="text-[13px] font-medium line-clamp-1">
+        <h6 className="text-[15px] font-bold line-clamp-1">
           {product?.name}
         </h6>
         <div className="flex items-center justify-between">
-          <h5 className="h4">${product?.price}.00</h5>
+          <h5 className="text-[15px] font-medium">${product?.price}.00</h5>
           <div className="flexCenter gap-1.5">
             <IoIosStar className="text-primary" />
             <p>4.5</p>
           </div>
         </div>
-        <p className="text-[12px] text-gray-500 line-clamp-2">
+        <p className="text-[13px] mt-1.5 text-gray-500 line-clamp-2">
           {product?.description}
         </p>
       </div>
