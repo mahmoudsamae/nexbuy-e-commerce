@@ -12,12 +12,28 @@ import orderRouter from "./routers/orderRouter.js";
 const app = express();
 const PORT = process.env.PORT || 4000;
 
+const allowedOrigins = [
+  process.env.CLIENT_URL || "http://localhost:3000", // رابط ال Frontend
+  process.env.ADMIN_URL || "http://localhost:8000", // رابط ال Admin
+];
+
 connectDB();
 connectCloudinary();
 
 // middleware
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
 
 app.use("/api/user", userRouter);
 app.use("/api/product", productRouter);
