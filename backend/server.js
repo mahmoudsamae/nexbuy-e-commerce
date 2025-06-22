@@ -42,7 +42,7 @@ app.use("/api/order", orderRouter);
 
 // Api endPoints
 app.get("/", (req, res) => {
-  res.send("hello world");
+  res.send("server working");
 });
 
 app.listen(PORT, () => {

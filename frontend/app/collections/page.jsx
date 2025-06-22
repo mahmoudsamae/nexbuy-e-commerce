@@ -14,15 +14,17 @@ const page = () => {
   const itemsPerPage = 8
 
   const filterFilter = (value, setState) => {
+    const cleanValue = value.trim();
     setState((prev) =>
-      prev.includes(value)
-        ? prev.filter((item) => item !== value)
-        : [...prev, value]
+      prev.includes(cleanValue)
+        ? prev.filter((item) => item !== cleanValue)
+        : [...prev, cleanValue]
     );
   };
 
   const applyFilter = () => {
     let filtered = [...products];
+    console.log(filtered)
     if (search && isShowSearch) {
       filtered = filtered.filter((product) =>
         product?.name?.toLowerCase().includes(search?.toLowerCase())
@@ -86,7 +88,9 @@ const page = () => {
                       type="checkbox"
                       value={cat}
                       className="w-3"
-                      onChange={(e) => filterFilter(e.target.value, setCategory)}
+                      onChange={(e) =>
+                        filterFilter(e.target.value, setCategory)
+                      }
                     />
                     {cat}
                   </label>
@@ -96,7 +100,7 @@ const page = () => {
             <div className="p-2 rounded-2xl bg-white">
               <h5 className="font-medium">Types</h5>
               <div className="flex flex-col">
-                {["Topwear", "Bottomwear", "Winterwear"].map((subCat) => (
+                {["Topwaer", "Bottomwaer", "Winterwaer"].map((subCat) => (
                   <label
                     key={subCat}
                     className="flex gap-2 font-medium text-gray-500 text-sm"
@@ -142,37 +146,39 @@ const page = () => {
             )}
           </div>
           {/* pagination */}
-          {getPaginatedProducts().length > 0 && <div className="flexCenter flex-wrap gap-4 mt-10">
-            <button
-              disabled={currentPage === 1}
-              onClick={() => setCurrentPage((prev) => prev - 1)}
-              className={`${
-                currentPage === 1 && "opacity-50 cursor-not-allowed"
-              } bg-primary py-1 px-3 rounded-4xl text-white cursor-pointer`}
-            >
-              Prev
-            </button>
-            {Array.from({ length: totalPage }, (_, index) => (
+          {getPaginatedProducts().length > 0 && (
+            <div className="flexCenter flex-wrap gap-4 mt-10">
               <button
-                key={index + 1}
-                onClick={() => setCurrentPage(index + 1)}
+                disabled={currentPage === 1}
+                onClick={() => setCurrentPage((prev) => prev - 1)}
                 className={`${
-                  currentPage === index + 1 && "bg-black text-white"
-                } px-3 py-1 cursor-pointer rounded-full`}
+                  currentPage === 1 && "opacity-50 cursor-not-allowed"
+                } bg-primary py-1 px-3 rounded-4xl text-white cursor-pointer`}
               >
-                {index + 1}
+                Prev
               </button>
-            ))}
-            <button
-              disabled={currentPage === totalPage}
-              onClick={() => setCurrentPage((prev) => prev + 1)}
-              className={`${
-                currentPage === totalPage && "opacity-50 cursor-not-allowed"
-              } bg-primary py-1 px-3 rounded-4xl text-white cursor-pointer`}
-            >
-              Prev
-            </button>
-          </div>}
+              {Array.from({ length: totalPage }, (_, index) => (
+                <button
+                  key={index + 1}
+                  onClick={() => setCurrentPage(index + 1)}
+                  className={`${
+                    currentPage === index + 1 && "bg-black text-white"
+                  } px-3 py-1 cursor-pointer rounded-full`}
+                >
+                  {index + 1}
+                </button>
+              ))}
+              <button
+                disabled={currentPage === totalPage}
+                onClick={() => setCurrentPage((prev) => prev + 1)}
+                className={`${
+                  currentPage === totalPage && "opacity-50 cursor-not-allowed"
+                } bg-primary py-1 px-3 rounded-4xl text-white cursor-pointer`}
+              >
+                Prev
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </section>
