@@ -72,9 +72,9 @@ const page = () => {
   return (
     <section>
       <div className="flex flex-col sm:flex-row">
-        <div className="w-full flex flex-col gap-1.5 min-w-50 sm:w-50 m-2 rounded-2xl bg-blue-50 px-5">
+        <div className="w-full flex flex-col gap-1.5 mt-2 rounded-2xl bg-blue-50 px-2">
           <ShowSearch />
-          <div className="flex gap-3 justify-between sm:flex-col pb-2">
+          <div className="flex gap-1 justify-between sm:flex-col pb-2">
             <div className="p-2 rounded-2xl bg-white">
               <h5 className="font-medium">Category</h5>
               <div className="flex flex-col">
